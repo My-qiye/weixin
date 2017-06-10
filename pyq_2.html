@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style>
+			
+			.main input{
+				/*width:100%;*/
+				/*height:10rem;*/
+				border:none;
+				outline: none;
+				resize:none;
+				background: #fff;
+				font-size: 18px;
+			}
+			#smg{
+				
+			
+				
+			}
+			
+			.mui-ellipsis{
+				font-size: 1rem;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: #444;color:#fff;">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#fff;"></a>
+		    <button type="button" class="mui-btn mui-btn-success mui-pull-right" style="width:60px;height:30px;">发送</button>
+		</header>
+		<div class="mui-content">
+		   
+		    	
+		    	<ul class="mui-table-view" id="smg" >
+			    	<textarea rows="5" cols="20"></textarea>
+		    	</ul>
+		    	<ul class="mui-table-view" >
+			   	   	
+				   	    <li class="mui-table-view-cell mui-media" >
+				   	        <a href="javascript:;">		   	                     		       			 
+						            <div class="mui-media-body">
+						
+						                <p class='mui-ellipsis' style="color:#222">
+							   	            <span style="color:#666;" class="mui-icon mui-icon-location"></span> &nbsp;&nbsp;所在位置
+						                	
+						                </p>
+						            </div>
+		
+				   	        </a>
+				   	    </li>
+			   	       
+			   	</ul>
+		    	<ul class="mui-table-view" style="margin-top: 20px;">
+			   	   	
+				   	    <li class="mui-table-view-cell mui-media" >
+				   	        <a href="javascript:;">		   	                     		       			 
+						            <div class="mui-media-body">
+						
+						                <p class='mui-ellipsis' style="color:#222">
+							   	            <span style="color:#666;font-size:1.5rem" class="mui-icon iconfont icon-diqiu" ></span> &nbsp;&nbsp;谁可以看<span style="font-size:.8rem;color:#999;line-height: 30px;" class="mui-pull-right">公开</span>
+						                	
+						                </p>
+						            </div>
+		
+				   	        </a>
+				   	    </li>
+			   	        <li class="mui-table-view-cell mui-media" >
+				   	        <a href="javascript:;">		   	                     		       			 
+						            <div class="mui-media-body">
+						
+						                <p class='mui-ellipsis' style="color:#222">
+							   	            <span style="color:#666;" class="mui-icon mui-icon">@</span> &nbsp;&nbsp;提醒谁看
+						                	
+						                </p>
+						            </div>
+		
+				   	        </a>
+				   	    </li>
+			   	</ul>
+			
+		    
+		    
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			//1.获取当前窗体
+			var cw = plus.webview.currentWebview();
+			
+			//选中li标签
+			var smg = document.getElementById('smg');		
+			
+			smg.innerHTML += cw.img;
+			smg.insertBefore(cw.img,smg.firstChild);
+		
+		});
+	</script>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+
+		<script src="js/mui.min.js"></script>
+		<style type="text/css">
+			.mui-card-header  .mui-media-body p{
+				color:#333;
+				font-size:.92rem;
+			}
+			
+			.mui-card-header>.mui-media-body:nth-of-type(2)>img{
+				padding: 8px 0;
+			}
+			.mui-card-header>.mui-media-body:nth-of-type(2)>p{
+				font-size: .7rem;
+				color:#666;
+				
+			}
+			
+			img{
+				display: block;
+			}
+			#sheet1{
+				position: relative;
+				z-index: 999;
+				text-align: center;
+				
+			}
+			.mui-table-view{
+				text-align: center;
+				position: absolute;
+				top:100px;
+				left:calc(50% - 30px);
+			}
+			.mui-table-view-cell{
+				padding:10px 30px;
+				
+				text-align: center;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		
+	<!--<div id="sheet1" class="mui-popover mui-popover-bottom mui-popup-button-bold ">
+			 	
+			    <ul class="mui-table-view">
+			    	
+			      
+			       <li class="mui-table-view-cell">
+			        <a href="#">菜单2</a>
+			      </li>
+			    
+			      <li class="mui-table-view-cell">
+			        <a href="#">菜单2</a>
+			      </li>
+			    </ul>
+			  
+	</div> -->
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll" id="view2">
+				<div id="gallery" style="background: rgba(50,50,50,.6);width:100%;height:16rem;text-align: center;line-height:16rem;">
+					轻触更换主题照片
+				</div>
+				 
+				<!--数据列表-->
+				<div id="view" class="mui-card">
+			    	<div class="mui-card-header  mui-card-media">
+			    		<img src="images/1.jpg"  alt="" />
+						<div class="mui-media-body" style="color: #077AFF;">
+							漩涡鸣人
+							<p>通灵之术:"从零开始的异世界生活"</p>
+						</div>
+						<div class="mui-media-body">
+				    		<img src="images/61.jpg" width="50%" alt="" />
+				    		<p>1小时前</p>
+			    		</div>
+			    	</div>
+			    	
+			    	
+			    </div>
+			    
+			    <div class="mui-card">
+			    	<div class="mui-card-header  mui-card-media">
+			    		<img src="images/2.jpg"  alt="" />
+						<div class="mui-media-body" style="color: #077AFF;">
+							路飞
+							<p>我是要成为海贼王的男人</p>
+							
+						</div>
+						<div class="mui-media-body">
+			    			<img src="images/62.jpg" width="50%"  alt="" />
+			    			
+			    			<p>3小时前</p>
+			    		</div>
+			    	</div>	
+			    	
+			    </div>
+				
+				
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+//		mui('#sheet1').popover('toggle');
+		mui.init({
+			//下拉刷新
+			pullRefresh: {
+				container: "#refreshContainer", //下拉容器设定
+				down: {
+					contentdown: "下拉可以刷新",
+					contentover: "释放立即刷新",
+					contentrefresh: "正在刷新",
+					callback: pulldownRefresh
+				},
+				up: {
+					callback: pullupRefresh
+				}
+			}
+
+		});
+
+		function pulldownRefresh() {
+			setTimeout(function() {
+				//选中数据加载区域
+				var table = document.querySelector('#view');
+				for(var i = 0; i < 2; i++) {
+					//创建一个li节点
+					var oDiv = document.createElement('div');
+					
+					oDiv.className = 'mui-card';
+					var str = '';
+					str += '<div class="mui-card-header  mui-card-media">';
+					str += '<img src="images/3.jpg"/>';
+					str += '<div class="mui-media-body" style="color: #077AFF;">';
+					str += '爱德华';
+					str += '<p>看来双星之阴阳师</p>';
+					str += '</div>';
+					str += '<div class="mui-media-body">';
+					str += '<img src="images/33.jpg" width="50%"  alt="" />';
+					str += '<p>1小时前</p>';					
+					str +='</div>';
+					str +='</div>';
+					str +='</div>';
+			
+					oDiv.innerHTML = str;
+
+					//将创建完成的li放入ul的子节点前面
+					table.insertBefore(oDiv, table.firstChild);
+
+				}
+
+				mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+			}, 1000);
+		}
+
+		function pullupRefresh() {
+			setTimeout(function() {
+				var table = document.querySelector('#view2');
+				
+				for(var i = 0; i < 2; i++) {
+					var oDiv = document.createElement('div');
+					
+					oDiv.className = 'mui-card';
+					var str = '';
+					str += '<div class="mui-card-header  mui-card-media">';
+					str += '<img src="images/4.jpg"/>';
+					str += '<div class="mui-media-body" style="color: #077AFF;">';
+					str += '银魂';
+					str += '<p>mdzz</p>';
+					str += '</div>';
+					str += '<div class="mui-media-body">';
+					str += '<img src="images/60.jpg" width="50%"  alt="" />';
+					str += '<p>3小时前</p>';					
+					str +='</div>';
+					str +='</div>';
+					str +='</div>';
+			
+					oDiv.innerHTML = str;
+					table.appendChild(oDiv);
+				}
+				mui('#refreshContainer').pullRefresh().endPullupToRefresh();
+			}, 1000);
+		}
+
+		var gallery = document.querySelector('#gallery');
+		gallery.addEventListener('tap', function() {
+			//			gallery.style.background = 'url(images/1.jpg)';
+			plus.gallery.pick(
+				function(path) {
+					
+					gallery.style.background = 'url(' + path + ')no-repeat center top';
+					gallery.style.backgroundSize = 100+'%'+' 16rem';
+				},
+				function(e) {
+
+				}, {
+					filter: "images",
+					multiple: false
+				}
+			);
+		})
+	
+		
+		
+	</script>
+
+</html>

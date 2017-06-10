@@ -1,0 +1,97 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/2.jpg",
+			"images/1.jpg",
+			"css/iconfont.css",
+			"images/3.jpg",
+			"fonts/iconfont.ttf",
+			"weixin.html"
+		],
+		"refer": [
+			"faxian.html",
+			"me.html",
+			"tongxun.html",
+			"weixin.html"
+		]
+	},
+	"faxian.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"pyq.html"
+		]
+	},
+	"me.html": {
+		"resources": [
+			"images/4.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/banner.jpg",
+			"images/erweima.jpg"
+		]
+	},
+	"weixin.html": {
+		"resources": [
+			"images/2.jpg",
+			"images/1.jpg",
+			"images/3.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/4.jpg",
+			"images/5.jpg",
+			"images/6.jpg",
+			"images/8.jpg",
+			"images/7.jpg",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"weixin_1.html"
+		]
+	},
+	"tongxun.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"weixin_1.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"pyq.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"pyq_1.html",
+			"pyq_2.html"
+		],
+		"refer": [
+			"pyq_1.html",
+			"pyq_2.html"
+		]
+	},
+	"pyq_1.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"images/61.jpg",
+			"images/62.jpg",
+			"images/60.jpg",
+			"images/33.jpg"
+		]
+	},
+	"pyq_2.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js"
+		]
+	}
+}

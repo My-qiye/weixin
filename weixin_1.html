@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+	<style>
+		ul li{
+			list-style: none;
+		}
+		li{
+			list-style: none;
+		}
+		.mui-ellipsis{
+			font-size: .8rem;
+		}
+		.mui-pull-left{
+			color:#fff;
+		}
+		.footer{
+			display: flex;
+			align-items: center;
+			width:95%;
+			margin:0 auto;
+			justify-content: space-between;
+		}
+		.footer>div{
+			border-bottom: 1px solid #ccc;
+			height:31px;
+			width: 65%;
+		}
+		.footer input{
+			border: none;
+			height:30px;
+			width: 65%;
+			overflow: hidden;
+			background:transparent;
+		}
+		.footer span{
+			font-size: 1.2rem;
+		}
+		.mui-content .mui-table-view-cell{
+			background: #2ac813;
+			border-radius:5px
+		}
+		.mui-media-object{
+			margin:0 10px;
+			width:42px;
+			 height:42px;
+		}
+		.mui-col-xs-12{
+			margin-top: 20px;
+		}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background: #444;">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <div class="mui-row" style=" color:#fff;" >
+		        <div class="mui-col-sm-6 mui-col-xs-9" style="padding-top: 2px;">
+		            <li class="mui-table-view-cell" id="titles">
+		               	 微信
+		            </li>
+		        </div>
+		        <div class="mui-col-sm-3 mui-col-xs-2">           
+		               <span class="mui-icon iconfont icon-renxiang" style="line-height: 30px;"></span>                        
+		        </div>
+		        
+    		</div>
+		    
+		</header>
+		
+		<div class="mui-content">
+			
+		    <div class="mui-row" id="view3">
+		        <div class="mui-col-sm-6 mui-col-xs-12" >
+		           
+		            <img class="mui-media-object mui-pull-right"  src="images/1.jpg">
+		            	
+		            <li class="mui-table-view-cell mui-pull-right">
+		                
+		                    来呀,快活啊  
+		              
+		            </li>
+		        </div>
+		       
+		    </div>
+		</div>
+		
+		<nav class="mui-bar mui-bar-tab" style="height=30px;">
+		    		   		       
+		  	<div class="footer">
+		  		<span class="mui-icon iconfont icon-yuyin1"></span> 
+		  		<div>
+		  			<input type="text" id="input" />
+		  		</div>
+		  		<span class="mui-icon iconfont icon-xiaolian"></span> 
+		  		<span id="fasong" class="mui-icon iconfont icon-yuanquanjiahao"></span> 
+		  		
+		  	</div>  
+		  
+		</nav>
+	
+	</body>
+	
+	<!--<span class="mui-badge mui-badge-success">123</span>-->
+	
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			//1.获取当前窗体
+			var cw = plus.webview.currentWebview();
+			
+			//选中li标签
+			var herder = document.getElementById('titles');
+			
+			herder.innerText = cw.title;
+		});
+		
+		
+		var inputs = document.getElementById('input');
+		var fasong = document.querySelector('#fasong');
+		var view3 = document.querySelector('#view3');
+		inputs.addEventListener('keyup',function(){
+			if(!inputs.value == ''){
+				fasong.className = "mui-badge mui-badge-success";
+				fasong.innerHTML = '发送';
+				fasong.style.fontSize = '1rem';
+			}else{
+				fasong.className = 'mui-icon iconfont icon-yuanquanjiahao';
+				fasong.innerHTML = '';
+				fasong.style.fontSize = '1.5rem';
+				
+			}
+		});
+		fasong.addEventListener('tap',faShow);
+		
+		function faShow() {
+			if(!inputs.value == ''){
+				var val = inputs.value;
+				var oDiv = document.createElement('div');
+				oDiv.className = "mui-col-sm-6 mui-col-xs-12";
+				var str = '';
+			
+				str += '<img class="mui-media-object mui-pull-right"  src="images/1.jpg">;';
+				str += '<li class="mui-table-view-cell mui-pull-right">';
+				str += val;
+				str += '</li>';
+				str += '</div>';
+				oDiv.innerHTML = str;
+				view3.appendChild(oDiv);
+				
+				inputs.value = '';
+			}
+		}
+		
+		
+//		inputs.addEventListener('focus',function(){
+//			
+//		})
+	</script>
+</html>
